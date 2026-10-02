@@ -1,0 +1,29 @@
+.stack-chart svg, .bod-flow svg, .bod-curve svg, .process-svg { width:100%; height:auto; display:block; }
+.stack-track { fill:var(--surface-strong); }
+.series-1 { fill:var(--blue); background:var(--blue); }
+.series-2 { fill:var(--orange); background:var(--orange); }
+.series-3 { fill:var(--green); background:var(--green); }
+.chart-label, .axis-text { fill:var(--text); font-size:12px; }
+.chart-label { fill:#ffffff; }
+.axis-text { fill:var(--muted); }
+.process-svg { height:100%; user-select:none; }
+.process-svg text, .bod-flow text, .bod-curve text { fill:var(--text); font-size:13px; }
+.process-svg .concept-box { fill:var(--surface); stroke:var(--border); stroke-width:1.5; }
+.process-svg .tank-shell { fill:light-dark(#dbeafe,#172554); stroke:var(--blue); stroke-width:2; }
+.process-svg .clarifier-shell { fill:light-dark(#ffedd5,#431407); stroke:var(--orange); stroke-width:2; }
+.process-svg .flow-line { fill:none; stroke:var(--text); stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+.process-svg .oxygen-line { fill:none; stroke:var(--green); stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow-green); }
+.process-svg .sludge-line { fill:none; stroke:var(--orange); stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow-orange); }
+.process-svg .internal-line { fill:none; stroke:var(--muted); stroke-linecap:round; stroke-linejoin:round; marker-end:url(#arrow); }
+.process-svg .section-label { font-size:18px; font-weight:600; }
+.process-svg .symbol { font-size:16px; font-weight:600; }
+.process-svg .tiny { font-size:12px; fill:var(--muted); }
+.bod-flow .tank { fill:light-dark(#dbeafe,#172554); stroke:var(--border); }
+.bod-flow .settler { fill:light-dark(#ffedd5,#431407); stroke:var(--border); }
+.bod-flow .arrow { fill:none; stroke:var(--text); stroke-width:2; marker-end:url(#bod-arrow); }
+.bod-flow .return-arrow { fill:none; stroke:var(--orange); stroke-width:2; marker-end:url(#bod-return-arrow); }
+.bod-curve .frame { fill:var(--surface); stroke:var(--border); }
+.bod-curve .gridline { stroke:var(--border); stroke-width:1; }
+.bod-curve .s-line { fill:none; stroke:var(--blue); stroke-width:3; }
+.bod-curve .x-line { fill:none; stroke:var(--green); stroke-width:3; }
+.bod-curve .current { stroke:var(--orange); stroke-width:2; stroke-dasharray:5 4; }

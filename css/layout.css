@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#ffffff, #0f172a);
+  --surface: light-dark(#f8fafc, #111827);
+  --surface-strong: light-dark(#eef2f7, #1f2937);
+  --text: light-dark(#111827, #f3f4f6);
+  --muted: light-dark(#64748b, #a8b1bf);
+  --border: light-dark(#cbd5e1, #374151);
+  --blue: #2563eb;
+  --green: #16a34a;
+  --orange: #ea580c;
+  --red: #dc2626;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+button, input, select { font: inherit; }
+sub, sup { line-height: 0; }
+.app { width: min(1480px, 100%); margin: 0 auto; padding: 20px; }
+.app-header { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:16px; }
+h1, h2, h3 { margin: 0; font-weight: 650; letter-spacing: 0; }
+h1 { font-size: 24px; }
+h2 { font-size: 21px; }
+h3 { font-size: 17px; }
+.subtitle, .muted { color: var(--muted); }
+.subtitle { margin: 4px 0 0; }
+.tabs { display:flex; gap:4px; border-bottom:1px solid var(--border); margin-bottom:22px; overflow-x:auto; }
+.tab { border:0; border-bottom:3px solid transparent; padding:10px 14px; color:var(--muted); background:transparent; white-space:nowrap; }
+.tab[aria-selected="true"] { color:var(--text); border-color:var(--blue); }
+.page[hidden] { display:none; }
+.page-title { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:16px; }
+.status { color:var(--blue); font-size:14px; }
+.status.error { color:var(--red); }
+.model-layout { display:grid; grid-template-columns:minmax(280px, .82fr) minmax(500px, 1.7fr); gap:28px; align-items:start; }
+.results { display:grid; gap:18px; min-width:0; }
+.plot-group { min-width:0; }
+.plot-heading { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:5px; }
+.legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:7px; font-size:13px; }
+.legend-item { display:inline-flex; align-items:center; gap:6px; }
+.swatch { width:11px; height:11px; border-radius:2px; }
+.metrics { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+.metric { padding:14px; background:var(--surface-strong); border-radius:6px; min-width:0; }
+.metric-label { color:var(--muted); font-size:13px; }
+.metric-value { margin-top:4px; font-size:22px; font-variant-numeric:tabular-nums; }
+.metric-context { margin-top:4px; font-size:12px; }
+.facts { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 18px; font-size:13px; }
+.process-section { margin-top:30px; }
+.process-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px; }
+.zoom-controls { display:flex; gap:4px; }
+.icon-button { width:34px; height:34px; border:1px solid var(--border); background:transparent; color:var(--text); font-size:20px; }
+.diagram-viewport { width:100%; height:620px; overflow:hidden; background:var(--bg); touch-action:none; }
+.reference-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:18px; }
+.reference-section { margin-top:24px; }
+.reference-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 22px; margin-top:10px; }
+.reference-item { padding:8px 0 8px 12px; border-left:4px solid var(--green); }
+.reference-item.equation { border-color:var(--blue); }
+.reference-item strong { color:var(--green); }
+.reference-item.equation strong { color:var(--blue); }
+.formula { margin-top:4px; font-family:"Cambria Math", "STIX Two Math", serif; overflow-wrap:anywhere; }
+.error-message { color:var(--red); margin-top:12px; }
+
+@media (max-width: 850px) {
+  .model-layout { grid-template-columns:1fr; }
+  .reference-grid { grid-template-columns:1fr; }
+  .diagram-viewport { height:500px; }
+}
+@media (max-width: 560px) {
+  .app { padding:12px; }
+  .metrics { grid-template-columns:1fr; }
+  .diagram-viewport { height:400px; }
+  .app-header { display:block; }
+}

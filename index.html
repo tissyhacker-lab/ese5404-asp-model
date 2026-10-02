@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESE5404 Activated Sludge Models</title>
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/controls.css">
+  <link rel="stylesheet" href="./css/diagrams.css">
+</head>
+<body>
+  <main class="app" id="asp-app">
+    <header class="app-header">
+      <div><h1>ESE5404 Activated Sludge Models</h1><p class="subtitle">COD- and BOD-based steady-state learning tools</p></div>
+      <span class="muted">HU TONGYU</span>
+    </header>
+
+    <nav class="tabs" aria-label="Study pages" role="tablist">
+      <button class="tab" type="button" role="tab" id="tab-cod" aria-controls="page-cod" aria-selected="true">COD model</button>
+      <button class="tab" type="button" role="tab" id="tab-cod-reference" aria-controls="page-cod-reference" aria-selected="false">COD concepts &amp; equations</button>
+      <button class="tab" type="button" role="tab" id="tab-bod" aria-controls="page-bod" aria-selected="false">BOD model</button>
+      <button class="tab" type="button" role="tab" id="tab-bod-reference" aria-controls="page-bod-reference" aria-selected="false">BOD concepts &amp; equations</button>
+    </nav>
+
+    <section class="page" id="page-cod" role="tabpanel" aria-labelledby="tab-cod">
+      <div class="page-title"><h2>COD-based ASP steady-state explorer</h2><span class="status" id="cod-status"></span></div>
+      <div class="model-layout">
+        <section aria-label="COD model parameters"><div class="control-grid" id="cod-controls"></div><div class="error-message" id="cod-error" hidden></div></section>
+        <section class="results" aria-live="polite">
+          <div class="plot-group"><div class="plot-heading"><h3>Influent COD fate</h3><span class="muted" id="cod-bh"></span></div><div class="stack-chart" id="cod-fate-chart"></div><div class="legend" id="cod-fate-legend"></div></div>
+          <div class="plot-group"><div class="plot-heading"><h3>Organic sludge inventory</h3><span class="muted" id="cod-active"></span></div><div class="stack-chart" id="cod-sludge-chart"></div><div class="legend" id="cod-sludge-legend"></div></div>
+          <div class="metrics">
+            <div class="metric"><div class="metric-label">Oxygen demand</div><div class="metric-value" id="cod-oxygen"></div><div class="metric-context" id="cod-oxygen-context"></div></div>
+            <div class="metric"><div class="metric-label">Excess sludge</div><div class="metric-value" id="cod-sludge"></div><div class="metric-context" id="cod-sludge-context"></div></div>
+            <div class="metric"><div class="metric-label">Bioreactor volume</div><div class="metric-value" id="cod-volume"></div><div class="metric-context" id="cod-volume-context"></div></div>
+          </div>
+          <div class="facts"><span id="cod-effluent"></span><span id="cod-nutrients"></span><span id="cod-fm"></span></div>
+        </section>
+      </div>
+      <section class="process-section"><div class="process-heading"><h3>ASP process map</h3><div class="zoom-controls"><button class="icon-button" id="zoom-out" type="button" aria-label="Zoom out">−</button><button class="icon-button" id="zoom-in" type="button" aria-label="Zoom in">+</button><button class="icon-button" id="zoom-reset" type="button" aria-label="Reset diagram">↺</button></div></div><div class="diagram-viewport" id="cod-diagram"></div></section>
+    </section>
+
+    <section class="page" id="page-cod-reference" role="tabpanel" aria-labelledby="tab-cod-reference" hidden>
+      <div class="reference-head"><h2>COD model reference</h2><span class="muted">Concepts in green; PDF equation numbers in blue</span></div>
+      <h3>Concepts and definitions</h3><div class="reference-grid" id="cod-concepts"></div>
+      <div class="reference-section"><h3>Numbered equations</h3><div class="reference-grid" id="cod-equations"></div></div>
+    </section>
+
+    <section class="page" id="page-bod" role="tabpanel" aria-labelledby="tab-bod" hidden>
+      <div class="page-title"><h2>BOD-based ASP steady-state explorer</h2><span class="status" id="bod-status"></span></div>
+      <div class="model-layout">
+        <section aria-label="BOD model parameters"><div class="control-grid" id="bod-controls"></div><div class="error-message" id="bod-error" hidden></div></section>
+        <section class="results" aria-live="polite">
+          <div class="plot-group"><div class="plot-heading"><h3>Effect of MCRT</h3><span class="muted" id="bod-critical"></span></div><div class="bod-curve" id="bod-curve"></div><div class="legend"><span class="legend-item"><i class="swatch series-1"></i>Effluent S</span><span class="legend-item"><i class="swatch series-3"></i>Biomass X</span><span class="legend-item"><i class="swatch series-2"></i>Selected θc</span></div></div>
+          <div class="bod-flow" id="bod-flow"></div>
+          <div class="metrics"><div class="metric"><div class="metric-label">Effluent substrate</div><div class="metric-value" id="bod-s"></div><div class="metric-context" id="bod-removal"></div></div><div class="metric"><div class="metric-label">Biomass in AT</div><div class="metric-value" id="bod-x"></div><div class="metric-context" id="bod-volume"></div></div><div class="metric"><div class="metric-label">Carbonaceous O₂</div><div class="metric-value" id="bod-o2"></div><div class="metric-context" id="bod-sludge"></div></div></div>
+          <div class="facts"><span id="bod-fm"></span><span id="bod-r"></span><span id="bod-nod"></span><span id="bod-xrmax"></span></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="page" id="page-bod-reference" role="tabpanel" aria-labelledby="tab-bod-reference" hidden>
+      <div class="reference-head"><h2>BOD model reference</h2><span class="muted">Concepts in green; equations (1)-(26) in blue</span></div>
+      <h3>Concepts and definitions</h3><div class="reference-grid" id="bod-concepts"></div>
+      <div class="reference-section"><h3>Numbered equations</h3><div class="reference-grid" id="bod-equations"></div></div>
+    </section>
+  </main>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
