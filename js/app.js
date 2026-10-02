@@ -2,11 +2,11 @@ import { COD_DEFAULTS, COD_PRESETS, BOD_DEFAULTS } from "./models/parameters.js"
 import { calculateCodModel } from "./models/cod-model.js";
 import { calculateBodModel } from "./models/bod-model.js";
 import { COD_CONCEPTS, COD_EQUATIONS } from "./equations/cod-equations.js";
-import { BOD_CONCEPTS, BOD_EQUATIONS } from "./equations/bod-equations.js";
+import { BOD_REFERENCE_GROUPS } from "./equations/bod-equations.js";
 import { drawStackChart, drawLegend } from "./views/cod-charts.js";
 import { drawBodFlow, drawBodCurves } from "./views/bod-charts.js";
 import { renderCodProcessMap, updateCodProcessMap, enableDiagramNavigation } from "./views/process-diagrams.js";
-import { renderReferenceList } from "./views/reference-view.js";
+import { renderGroupedReference, renderReferenceList } from "./views/reference-view.js";
 
 const app = document.getElementById("asp-app");
 const fmt = (value, digits = 1) => new Intl.NumberFormat(undefined, {
@@ -73,8 +73,7 @@ renderControls(document.getElementById("cod-controls"), COD_CONTROLS, COD_DEFAUL
 renderControls(document.getElementById("bod-controls"), BOD_CONTROLS, BOD_DEFAULTS);
 renderReferenceList(document.getElementById("cod-concepts"), COD_CONCEPTS);
 renderReferenceList(document.getElementById("cod-equations"), COD_EQUATIONS.map(([id, formula]) => [id, "", formula]), true);
-renderReferenceList(document.getElementById("bod-concepts"), BOD_CONCEPTS);
-renderReferenceList(document.getElementById("bod-equations"), BOD_EQUATIONS.map(([id, formula]) => [id, "", formula]), true);
+renderGroupedReference(document.getElementById("bod-concepts"), BOD_REFERENCE_GROUPS);
 
 const diagram = document.getElementById("cod-diagram");
 renderCodProcessMap(diagram);

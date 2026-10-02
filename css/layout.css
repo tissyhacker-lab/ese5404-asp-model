@@ -60,6 +60,32 @@ h3 { font-size: 17px; }
 .reference-item strong { color:var(--green); }
 .reference-item.equation strong { color:var(--blue); }
 .formula { margin-top:4px; font-family:"Cambria Math", "STIX Two Math", serif; overflow-wrap:anywhere; }
+.bod-reference-grid { grid-template-columns:1fr; gap:18px; }
+.reference-group { padding:14px 0 14px 16px; }
+.reference-concept strong { color:var(--green); font-size:18px; }
+.reference-concept > div { margin-top:3px; }
+.relation-list { display:grid; gap:10px; margin-top:13px; }
+.relation-item { padding:10px 12px; border-left:3px solid var(--blue); background:var(--surface); min-width:0; }
+.relation-meta { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.relation-type { color:var(--muted); font-size:13px; }
+.reference-item .equation-number { color:var(--blue); white-space:nowrap; }
+.math-display { margin-top:7px; color:var(--blue); font-size:17px; line-height:1.55; overflow-x:auto; overflow-y:hidden; overflow-wrap:normal; }
+.fraction {
+  display:inline-grid;
+  grid-template-rows:auto auto;
+  align-items:center;
+  justify-items:stretch;
+  min-width:max-content;
+  max-width:100%;
+  margin:0 .14em;
+  vertical-align:middle;
+  line-height:1.16;
+  text-align:center;
+}
+.fraction > .numerator,
+.fraction > .denominator { display:block; padding:.05em .28em; white-space:nowrap; }
+.fraction > .denominator { border-top:1.5px solid currentColor; }
+.fraction .fraction { font-size:.88em; }
 .error-message { color:var(--red); margin-top:12px; }
 
 @media (max-width: 850px) {
@@ -72,4 +98,6 @@ h3 { font-size: 17px; }
   .metrics { grid-template-columns:1fr; }
   .diagram-viewport { height:400px; }
   .app-header { display:block; }
+  .relation-meta { align-items:flex-start; }
+  .math-display { font-size:15px; }
 }
