@@ -19,7 +19,8 @@ ese5404-asp-model/
 │   │   └── parameters.js        Defaults and influent presets
 │   ├── equations/
 │   │   ├── cod-equations.js     COD concept and equation metadata
-│   │   └── bod-equations.js     BOD concept and equation metadata
+│   │   ├── bod-equations.js     BOD concept and equation metadata
+│   │   └── bod-parameter-reference.js  BOD quick-reference table
 │   └── views/
 │       ├── cod-charts.js         COD stacked charts
 │       ├── bod-charts.js         BOD process and MCRT charts
@@ -59,4 +60,6 @@ The model tests do not require a browser. They import the pure calculation funct
 
 ## Modelling note
 
-The BOD model uses the course-level approximation that active biomass `X` can be represented by MLVSS. The COD model separates organic sludge into active biomass `Xa`, endogenous residue `Xe`, and influent inert organic solids `Xi`. These assumptions are documented in the reference pages and should be revisited before using the model for plant design or a calibrated digital twin.
+The BOD model uses the course-level approximation that active biomass `X` can be represented by MLVSS. Raw BOD first passes through a configurable primary-settling removal step. `Qw` is then solved from the complete MCRT solids balance, including effluent biomass `Xe`; the displayed RAS ratio comes from the secondary-clarifier balance.
+
+The moving process diagram is a steady-state visualization, not a dynamic start-up simulation. Particle motion communicates flow, settling and recycle while every displayed value is the current equilibrium calculation. The COD model separately tracks active biomass `Xa`, endogenous residue `Xe`, and influent inert organic solids `Xi`. These assumptions should be revisited before using either model for plant design or a calibrated digital twin.

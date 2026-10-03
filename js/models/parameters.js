@@ -19,7 +19,9 @@ export const COD_PRESETS = Object.freeze({
 });
 
 export const BOD_DEFAULTS = Object.freeze({
-  influentBod: 200,
+  influentBod: 300,
+  primaryRemovalFraction: 0.33,
+  targetEffluentBod: 20,
   flow: 10000,
   mcrt: 8,
   hrtHours: 4,
@@ -28,6 +30,7 @@ export const BOD_DEFAULTS = Object.freeze({
   decayCoefficient: 0.08,
   trueYield: 0.50,
   returnSludgeVss: 10000,
+  effluentVss: 10,
   bodDecayConstant: 0.23,
   influentTkn: 40,
   svi: 100,

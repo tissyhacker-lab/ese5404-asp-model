@@ -48,15 +48,17 @@
 
     <section class="page" id="page-bod" role="tabpanel" aria-labelledby="tab-bod" hidden>
       <div class="page-title"><h2>BOD-based ASP steady-state explorer</h2><span class="status" id="bod-status"></span></div>
-      <div class="model-layout">
-        <section aria-label="BOD model parameters"><div class="control-grid" id="bod-controls"></div><div class="error-message" id="bod-error" hidden></div></section>
+      <div class="model-layout bod-model-layout">
+        <section class="parameter-panel" aria-label="BOD model parameters"><div class="panel-heading"><h3>Model inputs</h3><span class="muted">Sticky while you compare results</span></div><div id="bod-controls"></div><div class="error-message" id="bod-error" hidden></div></section>
         <section class="results" aria-live="polite">
-          <div class="plot-group"><div class="plot-heading"><h3>Effect of MCRT</h3><span class="muted" id="bod-critical"></span></div><div class="bod-curve" id="bod-curve"></div><div class="legend"><span class="legend-item"><i class="swatch series-1"></i>Effluent S</span><span class="legend-item"><i class="swatch series-3"></i>Biomass X</span><span class="legend-item"><i class="swatch series-2"></i>Selected θc</span></div></div>
-          <div class="bod-flow" id="bod-flow"></div>
+          <div class="plot-group"><div class="plot-heading"><h3>Effect of MCRT</h3><span class="muted" id="bod-critical"></span></div><p class="chart-hint">Drag the orange MCRT line. The logarithmic time axis expands the washout and 0.3-5 d regions.</p><div class="bod-curve" id="bod-curve"></div><div class="legend"><span class="legend-item"><i class="swatch series-1"></i>Effluent S</span><span class="legend-item"><i class="swatch series-3"></i>Biomass X</span><span class="legend-item"><i class="swatch series-2"></i>Selected θc</span></div></div>
           <div class="metrics"><div class="metric"><div class="metric-label">Effluent substrate</div><div class="metric-value" id="bod-s"></div><div class="metric-context" id="bod-removal"></div></div><div class="metric"><div class="metric-label">Biomass in AT</div><div class="metric-value" id="bod-x"></div><div class="metric-context" id="bod-volume"></div></div><div class="metric"><div class="metric-label">Carbonaceous O₂</div><div class="metric-value" id="bod-o2"></div><div class="metric-context" id="bod-sludge"></div></div></div>
-          <div class="facts"><span id="bod-fm"></span><span id="bod-r"></span><span id="bod-nod"></span><span id="bod-xrmax"></span></div>
+          <div class="facts"><span id="bod-fm"></span><span id="bod-q"></span><span id="bod-r"></span><span id="bod-qw"></span><span id="bod-nod"></span><span id="bod-xrmax"></span></div>
         </section>
       </div>
+      <section class="process-section bod-process-section"><div class="process-heading"><div><h3>Steady-state process animation</h3><p class="section-note">Moving particles show hydraulic flow, biomass recycle and settling; labels are the calculated equilibrium values.</p></div><span class="status" id="bod-balance"></span></div><div class="bod-flow" id="bod-flow"></div></section>
+      <section class="relationship-section"><div class="section-heading"><div><h3>MCRT relationship map</h3><p class="section-note">θc links kinetics, substrate removal, biomass inventory and recycle operation.</p></div></div><div class="bod-relationships" id="bod-relationships"></div></section>
+      <section class="concept-table-section"><div class="section-heading"><div><h3>BOD model concept table</h3><p class="section-note">Quick reference only. Use the next page for numbered definitions and derivations.</p></div><div class="table-filter" id="bod-table-filter" role="group" aria-label="Filter concept table"></div></div><div class="table-wrap"><table class="concept-table"><thead><tr><th>Symbol</th><th>Meaning</th><th>Unit</th><th>Common value or range</th><th>Class</th></tr></thead><tbody id="bod-parameter-table"></tbody></table></div></section>
     </section>
 
     <section class="page" id="page-bod-reference" role="tabpanel" aria-labelledby="tab-bod-reference" hidden>
@@ -64,6 +66,6 @@
       <div class="reference-grid bod-reference-grid" id="bod-concepts"></div>
     </section>
   </main>
-  <script type="module" src="./js/app.js?v=2"></script>
+  <script type="module" src="./js/app.js?v=3"></script>
 </body>
 </html>

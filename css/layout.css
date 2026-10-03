@@ -47,6 +47,7 @@ h3 { font-size: 17px; }
 .metric-value { margin-top:4px; font-size:22px; font-variant-numeric:tabular-nums; }
 .metric-context { margin-top:4px; font-size:12px; }
 .facts { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 18px; font-size:13px; }
+.chart-hint, .section-note { margin:4px 0 8px; color:var(--muted); font-size:12px; line-height:1.45; }
 .process-section { margin-top:30px; }
 .process-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px; }
 .zoom-controls { display:flex; gap:4px; }
@@ -87,6 +88,19 @@ h3 { font-size: 17px; }
 .fraction > .denominator { border-top:1.5px solid currentColor; }
 .fraction .fraction { font-size:.88em; }
 .error-message { color:var(--red); margin-top:12px; }
+.bod-process-section, .relationship-section, .concept-table-section { padding-top:26px; border-top:1px solid var(--border); margin-top:30px; }
+.bod-flow { overflow-x:auto; }
+.section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:10px; }
+.table-filter { display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end; }
+.filter-button { padding:5px 8px; border:1px solid var(--border); border-radius:4px; background:transparent; color:var(--muted); font-size:12px; }
+.filter-button[aria-pressed="true"] { color:#fff; border-color:var(--blue); background:var(--blue); }
+.table-wrap { overflow-x:auto; border:1px solid var(--border); }
+.concept-table { width:100%; border-collapse:collapse; font-size:13px; }
+.concept-table th, .concept-table td { padding:9px 11px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; }
+.concept-table th { position:sticky; top:0; background:var(--surface-strong); white-space:nowrap; }
+.concept-table tbody tr:last-child td { border-bottom:0; }
+.symbol-cell { color:var(--green); font-family:"Cambria Math",serif; font-size:15px; font-weight:650; white-space:nowrap; }
+.class-tag { display:inline-block; padding:2px 6px; border:1px solid var(--border); border-radius:3px; color:var(--muted); white-space:nowrap; }
 
 @media (max-width: 850px) {
   .model-layout { grid-template-columns:1fr; }
@@ -100,4 +114,6 @@ h3 { font-size: 17px; }
   .app-header { display:block; }
   .relation-meta { align-items:flex-start; }
   .math-display { font-size:15px; }
+  .section-heading { display:block; }
+  .table-filter { justify-content:flex-start; margin-top:8px; }
 }
